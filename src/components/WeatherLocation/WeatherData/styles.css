@@ -1,0 +1,54 @@
+.weatherDataCont{
+    background: rgba(212,228,239,1);
+    background: -moz-linear-gradient(left, rgba(212,228,239,1) 0%, rgba(212,228,239,1) 47%, rgba(135,175,205,1) 99%, rgba(134,174,204,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(212,228,239,1)), color-stop(47%, rgba(212,228,239,1)), color-stop(99%, rgba(135,175,205,1)), color-stop(100%, rgba(134,174,204,1)));
+    background: -webkit-linear-gradient(left, rgba(212,228,239,1) 0%, rgba(212,228,239,1) 47%, rgba(135,175,205,1) 99%, rgba(134,174,204,1) 100%);
+    background: -o-linear-gradient(left, rgba(212,228,239,1) 0%, rgba(212,228,239,1) 47%, rgba(135,175,205,1) 99%, rgba(134,174,204,1) 100%);
+    background: -ms-linear-gradient(left, rgba(212,228,239,1) 0%, rgba(212,228,239,1) 47%, rgba(135,175,205,1) 99%, rgba(134,174,204,1) 100%);
+    background: linear-gradient(to right, rgba(212,228,239,1) 0%, rgba(212,228,239,1) 47%, rgba(135,175,205,1) 99%, rgba(134,174,204,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d4e4ef', endColorstr='#86aecc', GradientType=1 );
+    width: 400px;
+    height: 100px;
+    line-height: 100px;
+    border-radius: 135px 135px 135px 135px;
+    -moz-border-radius: 135px 135px 135px 135px;
+    -webkit-border-radius: 135px 135px 135px 135px;
+    border: 0px solid #000000;
+    margin:15px;
+    display: inline-block;    
+}
+
+.weatherExtraInfoCont{
+    width: 40%;
+    display: inline-block;
+    line-height: 28px;
+    text-align: left;
+}
+
+.weatherTempCont{
+    width: 60%;
+    display: inline-block;
+}
+
+.temp{
+    font-size:30px;
+    font-weight: bold;
+    padding-left: 20px;
+    color: #333;
+}
+
+.temptype{
+    font-weight: bold;
+    color: #666;
+}
+
+.extrainfotext{
+    display: block;
+    color: #1535c5;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.wicon{
+    color: rgb(255,72,0);
+}

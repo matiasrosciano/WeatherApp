@@ -31,3 +31,68 @@
     transform: rotate(360deg);
   }
 }
+
+.SearchButton:hover{
+  background-color:#4095c6;
+}
+
+
+.TextLocation{
+  border: 0;
+  padding: 0.3em 1.2em;
+  margin:0 0.3em 0.3em 0;
+
+}
+
+
+.SearchButton{
+  display: inline-block;
+  padding: 0.3em 1.2em;
+  margin:0 0.3em 0.3em 0;
+  border-radius:2em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color:#FFFFFF;
+  background-color:#4eb5f1;
+  text-align:center;
+  transition: all 0.2s;
+}
+
+
+.WeatherListCont{
+  display: block;
+}
+
+
+.SearchCityCont{
+  margin: 20px;
+  text-align: left;
+  margin-left: 7em;
+}
+
+
+.AddWeatherBtn{
+  display: block;
+  padding: 0.3em 1.2em;
+  margin-top: 2em;
+  margin-left: 16em;
+  border-radius:2em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color:#FFFFFF;
+  background-color:#4eb5f1;
+  text-align: left;
+  transition: all 0.2s;
+}
+
+.WeatherList{
+  display: inline
+}
+
+.NewWeather{
+  display: inline
+}

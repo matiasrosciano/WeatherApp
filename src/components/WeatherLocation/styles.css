@@ -1,0 +1,35 @@
+.locationcont{
+    width: 100%;
+    height: 35px;
+    text-align: center;
+    color: #888;
+}
+
+.weatherlocationcont{
+    width: 450px;
+    display: block;
+    margin-left: 2em;
+    margin-right: auto;
+    margin-top: 2em;
+    -webkit-box-shadow: 3px 3px 28px 16px rgba(19,124,156,0.41);
+    -moz-box-shadow: 3px 3px 28px 16px rgba(19,124,156,0.41);
+    box-shadow: 3px 3px 28px 16px rgba(19,124,156,0.41);    
+}
+
+
+.AddWeatherBtn{
+    display: block;
+    padding: 0.3em 1.2em;
+    margin-top: 2em;
+    margin-left: 26em;
+    border-radius:2em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:#FFFFFF;
+    background-color:#4eb5f1;
+    text-align: left;
+    transition: all 0.2s;
+  }
+  
