@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import WeatherLocation from './components/WeatherLocation';
 import WeatherList from './components/WeatherList';
+import { Grid, Row, Col } from 'react-flexbox-grid'
 
 import './App.css';
 
@@ -15,12 +16,22 @@ class App extends Component {
     }
   }
 
+  handleOnSearchError = () => {
+
+    console.log("handleonSearchError")
+    this.setState({
+      city: "",
+      SearchBtn: false
+    })
+  }
+
   handleOnSearchCity = () =>{
     let location = document.getElementById('searchlocation').value
     this.setState({
       city: location,
       SearchBtn: true
     })
+    document.getElementById('searchlocation').value = ''
   }
   
   handleAddWeather = () =>{
@@ -37,31 +48,44 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <h1>Weather App</h1>
-            <div className="NewWeather">
-              <div className="SearchCityCont">
-                <input className="TextLocation" type="text" placeholder="Buscar ciudad" id="searchlocation"/>
-                <button className="SearchButton" onClick={this.handleOnSearchCity}>Buscar</button>
+        <h1>Weather App</h1>
+        <Grid fluid>
+          <Row>
+            <Col xs={12} sm={6} md={4}>
+              <div className="NewWeather">
+                <div className="SearchCityCont">
+                  <input className="TextLocation" type="text" placeholder="Buscar ciudad" id="searchlocation"/>
+                  <button className="SearchButton" onClick={this.handleOnSearchCity}>Buscar</button>
+                </div>
+                {
+                  this.state.SearchBtn
+                  ?( <span>
+                      <WeatherLocation city={this.state.city} data={this.state.data} OnErrorCity={this.handleOnSearchError}/>           
+                      <button className="AddWeatherBtn" onClick={this.handleAddWeather}>Agregar a la lista</button>   
+                    </span>
+                  )
+                  :
+                  (
+                    <span></span>
+                  )
+                }
+                      
               </div>
-              {
-                this.state.SearchBtn
-                ?( <span>
-                    <WeatherLocation city={this.state.city} data={this.state.data}/>           
-                    <button className="AddWeatherBtn" onClick={this.handleAddWeather}>Agregar a la lista</button>   
-                  </span>
-                )
-                :
-                (
-                  <span></span>
-                )
-              }
-                     
-            </div>
-            <div className="WeatherList">
-              <WeatherList weathers={this.state.weathers}/>
-            </div>
+            
+            </Col>
+            <Col xs={12} sm={6} md={4}>
+              <div className="WeatherList">
+                <WeatherList weathers={this.state.weathers}/>
+              </div>
+            </Col>
+            <Col xs={12} sm={6} md={4}>
+              <div className="green">a</div>
+            </Col>
+          </Row>              
+        </Grid>
       </div>
-    );
+        
+    )
   }
 }
 

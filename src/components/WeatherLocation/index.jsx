@@ -13,12 +13,13 @@ const url_base_weather = 'http://api.openweathermap.org/data/2.5/weather'
 class WeatherLocation extends Component{
     constructor(props){
         super(props)
-
         this.state={
             city: props.city,
             data: null
         }
     }
+
+    
 
     componentDidMount() {
         const api_weather = `${url_base_weather}?q=${this.state.city}&appid=${apikey}`
@@ -27,6 +28,7 @@ class WeatherLocation extends Component{
                 return resolve.json()
             }else{
                 alert(`No se encuentra la ciudad ${this.state.city}`)
+                this.props.OnErrorCity()
             }
         }).then( data => {
             const newWeather = transFormWeather(data)
@@ -44,7 +46,7 @@ class WeatherLocation extends Component{
         return (
                 <div className="weatherlocationcont">
                     {
-                        this.state.data
+                        this.state.data && this.state.city
                     ? (
                         <span>
                             <Location city={this.state.city}/>
