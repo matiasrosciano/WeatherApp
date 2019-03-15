@@ -39,7 +39,6 @@ class App extends Component {
   handleAddWeather = () =>{
       let newWeather = {
         city: this.state.city,
-        data: this.state.data
       }
       this.setState({
         weathers: this.state.weathers.concat([newWeather]),
@@ -67,15 +66,11 @@ class App extends Component {
                   <button className="SearchButton" onClick={this.handleOnSearchCity}>Buscar</button>
                 </div>
                 {
-                  this.state.SearchBtn
-                  ?( <span>
-                      <WeatherLocation city={this.state.city} data={this.state.data} OnErrorCity={this.handleOnSearchError} handleOnClick={this.handleOnSelectLocation}/>           
+                  this.state.SearchBtn &&
+                  ( <span>
+                      <WeatherLocation city={this.state.city} OnErrorCity={this.handleOnSearchError} handleOnClick={this.handleOnSelectLocation}/>           
                       <button className="AddWeatherBtn" onClick={this.handleAddWeather}>Agregar a la lista</button>   
                     </span>
-                  )
-                  :
-                  (
-                    <span></span>
                   )
                 }
                       
@@ -88,7 +83,7 @@ class App extends Component {
               </div>
             </Col>
             <Col xs={12} sm={6} md={4}>
-              <WeatherExtends city={this.state.cityextendesweather}/>
+              <WeatherExtends city={this.state.cityextendsweather}/>
             </Col>
           </Row>              
         </Grid>
