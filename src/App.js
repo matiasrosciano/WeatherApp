@@ -13,7 +13,8 @@ class App extends Component {
     this.state = {
       city: "",
       weathers: [],
-      SearchBtn: false
+      SearchBtn: false,
+      cityextendsweather: ''
     }
   }
 
@@ -48,6 +49,9 @@ class App extends Component {
 
   handleOnSelectLocation = (city) => {
     console.log(`handleOnSelectLocation ${city}`)
+    this.setState({
+      cityextendsweather: city
+    })
   }
 
   render() {
@@ -84,7 +88,7 @@ class App extends Component {
               </div>
             </Col>
             <Col xs={12} sm={6} md={4}>
-              <WeatherExtends/>
+              <WeatherExtends city={this.state.cityextendesweather}/>
             </Col>
           </Row>              
         </Grid>

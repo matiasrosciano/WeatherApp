@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class WeatherExtends extends Component{
     render(){
         return(
-            <div>Tiempo extendido</div>
+            <div>Tiempo extendido {this.props.city}</div>
         )
     }
 }
