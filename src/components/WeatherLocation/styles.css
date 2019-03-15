@@ -7,9 +7,6 @@
 
 .weatherlocationcont{
     display: block;
-    margin-left: 2em;
-    margin-right: auto;
-    margin-top: 2em;
     -webkit-box-shadow: 3px 3px 28px 16px rgba(19,124,156,0.41);
     -moz-box-shadow: 3px 3px 28px 16px rgba(19,124,156,0.41);
     box-shadow: 3px 3px 28px 16px rgba(19,124,156,0.41);    

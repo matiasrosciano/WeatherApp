@@ -19,7 +19,10 @@ class WeatherLocation extends Component{
         }
     }
 
-    
+    handleOnMeClick = () => {
+        console.log('handleOnClick')
+        this.props.handleOnClick(this.state.city)
+    }
 
     componentDidMount() {
         const api_weather = `${url_base_weather}?q=${this.state.city}&appid=${apikey}`
@@ -44,7 +47,7 @@ class WeatherLocation extends Component{
     
     render(){
         return (
-                <div className="weatherlocationcont">
+                <div className="weatherlocationcont" onClick={this.handleOnMeClick}>
                     {
                         this.state.data && this.state.city
                     ? (

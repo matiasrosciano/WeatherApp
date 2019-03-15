@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import WeatherLocation from './components/WeatherLocation';
 import WeatherList from './components/WeatherList';
+import WeatherExtends from './components/WeatherExtends'
 import { Grid, Row, Col } from 'react-flexbox-grid'
 
 import './App.css';
@@ -45,6 +46,10 @@ class App extends Component {
       })
   }
 
+  handleOnSelectLocation = (city) => {
+    console.log(`handleOnSelectLocation ${city}`)
+  }
+
   render() {
     return (
       <div className="App">
@@ -60,7 +65,7 @@ class App extends Component {
                 {
                   this.state.SearchBtn
                   ?( <span>
-                      <WeatherLocation city={this.state.city} data={this.state.data} OnErrorCity={this.handleOnSearchError}/>           
+                      <WeatherLocation city={this.state.city} data={this.state.data} OnErrorCity={this.handleOnSearchError} handleOnClick={this.handleOnSelectLocation}/>           
                       <button className="AddWeatherBtn" onClick={this.handleAddWeather}>Agregar a la lista</button>   
                     </span>
                   )
@@ -75,11 +80,11 @@ class App extends Component {
             </Col>
             <Col xs={12} sm={6} md={4}>
               <div className="WeatherList">
-                <WeatherList weathers={this.state.weathers}/>
+                <WeatherList weathers={this.state.weathers} SelectInList={this.handleOnSelectLocation}/>
               </div>
             </Col>
             <Col xs={12} sm={6} md={4}>
-              <div className="green">a</div>
+              <WeatherExtends/>
             </Col>
           </Row>              
         </Grid>
