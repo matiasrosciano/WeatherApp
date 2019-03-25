@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import WeatherList from './components/WeatherList';
-import WeatherExtends from './components/WeatherExtends'
+import WeatherListContainer from './containers/WeatherListContainer'
+import WeatherExtendsContainer from './containers/WeatherExtendsContainer'
+import SearchWeather from './components/SearchWeather'
 import { Grid, Row, Col } from 'react-flexbox-grid'
 import './App.css';
-import SearchWeather from './components/SearchWeather';
+
+
 
 
 class App extends Component {
@@ -11,7 +13,6 @@ class App extends Component {
     super()
     this.state = {
       weathers: [],
-      cityextendsweather: ''
     }
   }
 
@@ -24,12 +25,7 @@ class App extends Component {
     this.setState({
       weathers: [...this.state.weathers,NewWeather]
     })
-  }
 
-  handleOnSelectLocation = (city) => {
-    this.setState({
-      cityextendsweather: city
-    })
   }
 
   render() {
@@ -39,20 +35,19 @@ class App extends Component {
         <Grid fluid>
           <Row>
             <Col xs={12} sm={6} md={4}>
-              <SearchWeather handleAddWeather={this.handleAddWeather} handleonasd={this.handleOnSelectLocation}/>            
+              <SearchWeather handleonaddtolist={this.handleAddWeather}/>      
             </Col>
             <Col xs={12} sm={6} md={4}>
               <div className="WeatherList">
                 { this.state.weathers &&
-                  <WeatherList weathers={this.state.weathers} SelectInList={this.handleOnSelectLocation}/>
+                  <WeatherListContainer
+                    weathers={this.state.weathers}
+                    />
                 }            
               </div>
             </Col>
             <Col xs={12} sm={6} md={4}>
-              {
-                this.state.cityextendsweather &&
-                <WeatherExtends city={this.state.cityextendsweather}/>
-              }
+                <WeatherExtendsContainer/>              
             </Col>
           </Row>              
         </Grid>

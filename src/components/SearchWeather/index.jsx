@@ -31,7 +31,7 @@ class SearchWeather extends Component{
       }
 
       handleOnAdd = () => {
-        this.props.handleAddWeather(this.state.city)
+        this.props.handleonaddtolist(this.state.city)
         this.setState({
           SearchBtn: false
         })
