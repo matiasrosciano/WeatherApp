@@ -8,25 +8,29 @@ class WeatherListContainer extends Component {
 
     handleOnSelectLocation = (city) => {    
         this.props.dispatchsetCity(city)
-      }
+    }
     
 
     render() {
         return (
+            this.props.weathers ?
             <WeatherList weathers={this.props.weathers}
                 SelectInList={this.handleOnSelectLocation}/>
+            :
+                <span></span>
         );
     }
 }
 
 WeatherListContainer.propTypes = {
     dispatchsetCity: PropTypes.func.isRequired,
-    weathers: PropTypes.array.isRequired,
 };
 
 const mapDispatchToProps = dispatch => ({
     dispatchsetCity: value => dispatch(setCity(value))
 })
 
+const mapStateToProps = state => ({weathers: state.weathers})
 
-export default  connect(null, mapDispatchToProps)(WeatherListContainer)
+
+export default  connect(mapStateToProps, mapDispatchToProps)(WeatherListContainer)
