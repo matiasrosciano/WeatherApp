@@ -1,53 +1,32 @@
 import React, { Component } from 'react';
-import WeatherLocation from './components/WeatherLocation';
 import WeatherList from './components/WeatherList';
 import WeatherExtends from './components/WeatherExtends'
 import { Grid, Row, Col } from 'react-flexbox-grid'
-
 import './App.css';
+import SearchWeather from './components/SearchWeather';
 
 
 class App extends Component {
   constructor(){
     super()
     this.state = {
-      city: "",
       weathers: [],
-      SearchBtn: false,
       cityextendsweather: ''
     }
   }
 
-  handleOnSearchError = () => {
-
-    console.log("handleonSearchError")
-    this.setState({
-      city: "",
-      SearchBtn: false
-    })
-  }
-
-  handleOnSearchCity = () =>{
-    let location = document.getElementById('searchlocation').value
-    this.setState({
-      city: location,
-      SearchBtn: true
-    })
-    document.getElementById('searchlocation').value = ''
-  }
   
-  handleAddWeather = () =>{
-      let newWeather = {
-        city: this.state.city,
-      }
-      this.setState({
-        weathers: this.state.weathers.concat([newWeather]),
-        SearchBtn: false
-      })
+  handleAddWeather = (city) =>{
+    console.log(city)
+    let NewWeather = {
+      city
+    }
+    this.setState({
+      weathers: [...this.state.weathers,NewWeather]
+    })
   }
 
   handleOnSelectLocation = (city) => {
-    console.log(`handleOnSelectLocation ${city}`)
     this.setState({
       cityextendsweather: city
     })
@@ -60,30 +39,20 @@ class App extends Component {
         <Grid fluid>
           <Row>
             <Col xs={12} sm={6} md={4}>
-              <div className="NewWeather">
-                <div className="SearchCityCont">
-                  <input className="TextLocation" type="text" placeholder="Buscar ciudad" id="searchlocation"/>
-                  <button className="SearchButton" onClick={this.handleOnSearchCity}>Buscar</button>
-                </div>
-                {
-                  this.state.SearchBtn &&
-                  ( <span>
-                      <WeatherLocation city={this.state.city} OnErrorCity={this.handleOnSearchError} handleOnClick={this.handleOnSelectLocation}/>           
-                      <button className="AddWeatherBtn" onClick={this.handleAddWeather}>Agregar a la lista</button>   
-                    </span>
-                  )
-                }
-                      
-              </div>
-            
+              <SearchWeather handleAddWeather={this.handleAddWeather} handleonasd={this.handleOnSelectLocation}/>            
             </Col>
             <Col xs={12} sm={6} md={4}>
               <div className="WeatherList">
-                <WeatherList weathers={this.state.weathers} SelectInList={this.handleOnSelectLocation}/>
+                { this.state.weathers &&
+                  <WeatherList weathers={this.state.weathers} SelectInList={this.handleOnSelectLocation}/>
+                }            
               </div>
             </Col>
             <Col xs={12} sm={6} md={4}>
-              <WeatherExtends city={this.state.cityextendsweather}/>
+              {
+                this.state.cityextendsweather &&
+                <WeatherExtends city={this.state.cityextendsweather}/>
+              }
             </Col>
           </Row>              
         </Grid>
@@ -92,5 +61,6 @@ class App extends Component {
     )
   }
 }
+
 
 export default App;

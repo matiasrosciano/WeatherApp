@@ -3,9 +3,7 @@ import WeatherLocation from './../WeatherLocation';
 
 const WeatherList = (props) => {
 
-    
     const handleOnSelectLocationInList = (city) => {
-        console.log(`handleOnSelectLocationInList ${city}`)
         props.SelectInList(city)
         //handleOnListclick(city)
     }

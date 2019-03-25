@@ -20,12 +20,25 @@ class WeatherLocation extends Component{
     }
 
     handleOnMeClick = () => {
-        console.log('handleOnClick')
         this.props.handleOnClick(this.state.city)
     }
 
     componentDidMount() {
-        const api_weather = `${url_base_weather}?q=${this.state.city}&appid=${apikey}`
+        this.updateWeather(this.props.city)
+    }
+
+    componentWillReceiveProps(nextProps){
+        if (nextProps.city !== this.props.city){
+            this.setState({
+                city: '',
+                data: null
+            })
+            this.updateWeather(nextProps.city)
+        }
+    }
+
+    updateWeather = city => {
+        const api_weather = `${url_base_weather}?q=${city}&appid=${apikey}`
         fetch(api_weather).then( resolve => {
             if (resolve.status === 200){
                 return resolve.json()
