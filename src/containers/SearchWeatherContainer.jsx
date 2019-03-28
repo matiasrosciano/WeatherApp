@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { AddCity } from './../actions'
+import { AddCity, setCity } from './../actions'
 import SearchWeather from './../components/SearchWeather'
 
 
@@ -12,26 +12,29 @@ class SearchWeatherContainer extends Component {
     let NewWeather = {
       city
     }
-
     this.props.dispatchAddCity(NewWeather)
-
-    /*
-    this.setState({
-      weathers: [...this.state.weathers,NewWeather]
-    })*/
-
   }
+
+  handleOnSelectLocation = (city) => {    
+    this.props.dispatchsetCity(city)
+}
+
+
 
 
     render() {
         return (
-            <SearchWeather handleonaddtolist={this.handleAddWeather}/>
+            <SearchWeather 
+              handleonaddtolist={this.handleAddWeather}
+              handleOnSelectedInSearch={this.handleOnSelectLocation}  
+            />
         );
     }
 }
 
 const mapDispatchToProps = dispatch => ({
-    dispatchAddCity: value => dispatch(AddCity(value))
+    dispatchAddCity: value => dispatch(AddCity(value)),
+    dispatchsetCity: value => dispatch(setCity(value))
 })
 
 export default connect(null,mapDispatchToProps)(SearchWeatherContainer);

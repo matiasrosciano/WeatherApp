@@ -14,6 +14,7 @@ const WeatherList = (props) => {
                 props.weathers.map( (weather) => (
                     <WeatherLocation city={weather.city} key={weather.city} handleOnClick={handleOnSelectLocationInList}/>
                 ))
+                
             }
         </ul>
     )

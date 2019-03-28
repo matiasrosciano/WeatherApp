@@ -38,7 +38,7 @@ class SearchWeather extends Component{
       }
 
       handleOnSelectLocation = () => {
-        this.props.handleonasd(this.state.city)
+        this.props.handleOnSelectedInSearch(this.state.city)
       }
     
     render() {
