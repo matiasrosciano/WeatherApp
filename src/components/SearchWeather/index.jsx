@@ -40,6 +40,12 @@ class SearchWeather extends Component{
       handleOnSelectLocation = () => {
         this.props.handleOnSelectedInSearch(this.state.city)
       }
+
+      handleonsubtmit = (e) => {
+        e.preventDefault();
+        console.log(e.target)
+        e.target.reset()
+      }
     
     render() {
         return (
@@ -55,7 +61,7 @@ class SearchWeather extends Component{
                       <button className="AddWeatherBtn" onClick={this.handleOnAdd}>Agregar a la lista</button>   
                     </span>
                   )
-                }           
+                }
               </div>
         )
     }

@@ -5,7 +5,8 @@ import reducers from './../reducers'
 
 const initialState = {
     city: "",
-    weathers: []
+    weathers: [],
+    
 }
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
